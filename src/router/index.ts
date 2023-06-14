@@ -1,39 +1,64 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
+
+import Home from '../views/Home.vue';
+import Login from '../views/Login.vue';
+import Register from '../views/Register.vue';
+import Admin from '../views/Admin.vue';
+import ManageUsers from '../views/ManageUsers.vue';
+import ManageCategory from '../views/ManageCategory.vue';
+import ManageConcerts from '../views/ManageConcerts.vue';
+import ConcertDetail from '../views/ConcertDetail.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: '/home'
   },
   {
-    path: '/tabs/',
-    component: TabsPage,
-    children: [
-      {
-        path: '',
-        redirect: '/tabs/tab1'
-      },
-      {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
-      },
-      {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
-      },
-      {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
-      }
-    ]
+    path: '/home',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
+  },
+  {
+    path: '/manageUsers',
+    name: 'ManageUsers',
+    component: ManageUsers
+  },
+  {
+    path: '/manageCategory',
+    name: 'ManageCategory',
+    component: ManageCategory
+  },
+  {
+    path: '/manageConcerts',
+    name: 'ManageConcerts',
+    component: ManageConcerts
+  },
+  {
+    path: '/concertDetail',
+    name: 'ConcertDetail',
+    component: ConcertDetail
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes
-})
-
+});
 export default router
